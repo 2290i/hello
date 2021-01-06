@@ -15,3 +15,82 @@ https://developers.ascendcorp.com/%E0%B8%97%E0%B8%B3-microservices-%E0%B9%83%E0%
 https://developers.ascendcorp.com/%E0%B8%AA%E0%B8%A3%E0%B8%B8%E0%B8%9B%E0%B8%87%E0%B8%B2%E0%B8%99-cloud-native-java-patterns-for-microservice-architectures-meetup-meetup-%E0%B9%81%E0%B8%A3%E0%B8%81%E0%B8%88%E0%B8%B2%E0%B8%81-cloud-af84ccc80374
 
 
+Config
+	Annotations
+		@EnableConfigServer
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		public class ConfigServerApplication
+	Dependencies
+		spring-cloud-config-server
+		spring-cloud-starter-netflix-eureka-client		
+
+
+Discovery
+	Annotations
+		@EnableEurekaServer
+		@SpringBootApplication
+		public class ServiceDiscoveryApplication
+	Dependencies
+		spring-cloud-starter-config
+		spring-cloud-starter-netflix-eureka-server
+
+Gateway
+	Annotations
+		@EnableZuulProxy
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		public class GatewayApplication
+	Dependencies
+		spring-cloud-starter-config
+		spring-cloud-starter-netflix-eureka-client
+
+Department service
+	Annotations
+		@EnableFeignClients
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		public class DepartmentApplication
+	Dependencies
+		spring-boot-starter-actuator
+		spring-boot-starter-web
+		spring-cloud-starter
+		spring-boot-starter-data-mongodb
+		spring-cloud-starter-netflix-eureka-client
+		spring-cloud-starter-openfeign
+		spring-cloud-starter-netflix-hystrix
+		spring-cloud-starter-zipkin	
+		spring-cloud-starter-config			
+
+Employee service
+	Annotations
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		public class EmployeeApplication
+	Dependencies
+		spring-boot-starter-actuator
+		spring-boot-starter-web
+		spring-cloud-starter
+		spring-boot-starter-data-mongodb
+		spring-cloud-starter-netflix-eureka-client
+		spring-cloud-starter-config
+		spring-cloud-starter-zipkin	
+		spring-cloud-starter-config	
+
+Organization service
+	Annotations
+		@EnableFeignClients
+		@EnableDiscoveryClient
+		@SpringBootApplication
+		public class OrganizationApplication
+	Dependencies
+		spring-boot-starter-actuator
+		spring-boot-starter-web
+		spring-cloud-starter
+		spring-boot-starter-data-mongodb
+		spring-cloud-starter-netflix-eureka-client
+		spring-cloud-starter-config
+		spring-cloud-starter-openfeign
+		spring-cloud-starter-netflix-hystrix
+		spring-cloud-starter-zipkin
+		spring-cloud-starter-config		
